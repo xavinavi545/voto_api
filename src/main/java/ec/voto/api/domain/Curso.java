@@ -19,11 +19,6 @@ public class Curso {
     private Long id;
 
     @Column(name = "nombre_del_curso", nullable = false)
-    private String nombreDelCurso;
+    private String nombre_del_Curso;
 
-    @OneToMany(mappedBy = "curso")
-    private String  estudiantes;
-
-    @OneToMany(mappedBy = "curso")
-    private String mesas;
 }

@@ -1,10 +1,10 @@
 package ec.voto.api.repository;
 
-import ec.voto.api.domain.Pais;
+import ec.voto.api.domain.Mesa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
 
-public interface MesaPersistence extends JpaRepository<Pais, Long> {
+
+public interface MesaPersistence extends JpaRepository<Mesa, Long> {
 
 }

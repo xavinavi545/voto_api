@@ -19,12 +19,10 @@ public class Mesa {
     private Long id;
 
     @Column(name = "num_mesa", nullable = false)
-    private int numeroMesa;
+    private int num_mesa;
 
     @ManyToOne
     @JoinColumn(name = "id_curso", nullable = false)
     private Curso curso;
 
-    @OneToMany(mappedBy = "mesa")
-    private String votaciones;
 }

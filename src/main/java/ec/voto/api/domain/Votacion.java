@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
+
+
 
 @Getter
 @Setter
@@ -24,10 +24,4 @@ public class Votacion {
     @ManyToOne
     @JoinColumn(name = "id_mesa", nullable = false)
     private Mesa mesa;
-
-    @Column(nullable = false)
-    private Date fecha;
-
-    @OneToMany(mappedBy = "votacion")
-    private String listas_de_votos;
 }

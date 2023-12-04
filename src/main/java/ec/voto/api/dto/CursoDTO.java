@@ -14,7 +14,6 @@ import lombok.ToString;
 @ToString
 public class CursoDTO {
    private long id;
-   private String nombreDelCurso;
-   private String estudiantes;
-   private String mesas;
+   private String nombre_del_Curso;
+
 }
