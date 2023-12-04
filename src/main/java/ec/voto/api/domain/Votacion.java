@@ -29,5 +29,5 @@ public class Votacion {
     private Date fecha;
 
     @OneToMany(mappedBy = "votacion")
-    private List<Lista_Votos> listas_de_votos;
+    private String listas_de_votos;
 }

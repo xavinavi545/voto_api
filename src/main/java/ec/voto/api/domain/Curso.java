@@ -22,8 +22,8 @@ public class Curso {
     private String nombreDelCurso;
 
     @OneToMany(mappedBy = "curso")
-    private List<Estudiante> estudiantes;
+    private String  estudiantes;
 
     @OneToMany(mappedBy = "curso")
-    private List<Mesa> mesas;
+    private String mesas;
 }

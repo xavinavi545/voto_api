@@ -26,5 +26,5 @@ public class Mesa {
     private Curso curso;
 
     @OneToMany(mappedBy = "mesa")
-    private List<Votacion> votaciones;
+    private String votaciones;
 }
