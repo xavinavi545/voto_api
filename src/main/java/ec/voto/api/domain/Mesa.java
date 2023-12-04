@@ -1,13 +1,10 @@
 package ec.voto.api.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,4 +12,19 @@ import lombok.Setter;
 @Table(name = "mesa")
 
 public class Mesa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    private Long id;
+
+    @Column(name = "num_mesa", nullable = false)
+    private int numeroMesa;
+
+    @ManyToOne
+    @JoinColumn(name = "id_curso", nullable = false)
+    private Curso curso;
+
+    @OneToMany(mappedBy = "mesa")
+    private List<Votacion> votaciones;
 }
