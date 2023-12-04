@@ -1,6 +1,7 @@
 package ec.voto.api.v1;
 
 import ec.voto.api.dto.ApiResponseDTO;
+import ec.voto.api.dto.CursoDTO;
 import ec.voto.api.dto.EstudianteDTO;
 import ec.voto.api.service.EstudianteService;
 import jakarta.validation.Valid;
@@ -35,6 +36,12 @@ public class EstudianteController {
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody EstudianteDTO EstudianteDTO) {
 		EstudianteDTO resultDTO = service.update(EstudianteDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
+	}
+
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> eliminar(@RequestBody EstudianteDTO EstudianteDTO) {
+		EstudianteDTO resultDTO = service.delete(EstudianteDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 

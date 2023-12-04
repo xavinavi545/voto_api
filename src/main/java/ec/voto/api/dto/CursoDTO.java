@@ -1,7 +1,5 @@
 package ec.voto.api.dto;
 
-import ec.voto.api.domain.Estudiante;
-import ec.voto.api.domain.Mesa;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +14,6 @@ public class CursoDTO {
    private long id;
    private String nombre_del_Curso;
 
+    public CursoDTO() {
+    }
 }

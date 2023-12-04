@@ -38,6 +38,13 @@ public class CursoController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> eliminar(@RequestBody CursoDTO CursoDTO) {
+		CursoDTO resultDTO = service.delete(CursoDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
+	}
+
+
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		CursoDTO dto = new CursoDTO();

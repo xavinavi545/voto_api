@@ -1,6 +1,8 @@
 package ec.voto.api.v1;
 
 import ec.voto.api.dto.ApiResponseDTO;
+import ec.voto.api.dto.CursoDTO;
+import ec.voto.api.dto.EstudianteDTO;
 import ec.voto.api.dto.Lista_De_VotosDTO;
 import ec.voto.api.service.Lista_De_VotosService;
 import jakarta.validation.Valid;
@@ -37,6 +39,13 @@ public class Lista_De_VotosController {
 		Lista_De_VotosDTO resultDTO = service.update(Lista_De_VotosDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
+
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> eliminar(@RequestBody Lista_De_VotosDTO Lista_De_VotosDTO) {
+		Lista_De_VotosDTO resultDTO = service.delete(Lista_De_VotosDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
+	}
+
 
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = { "/api/v1.0/mesa" })
+@RequestMapping(value = { "/api/v1.0/Mesa" })
 public class MesaController {
 
 	@Autowired
@@ -35,6 +35,12 @@ public class MesaController {
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody MesaDTO MesaDTO) {
 		MesaDTO resultDTO = service.update(MesaDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
+	}
+
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> eliminar(@RequestBody MesaDTO MesaDTO) {
+		MesaDTO resultDTO = service.delete(MesaDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
